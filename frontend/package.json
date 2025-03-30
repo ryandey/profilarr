@@ -24,7 +24,8 @@
         "react-router-dom": "^6.26.1",
         "react-syntax-highlighter": "^15.5.0",
         "react-toastify": "^10.0.5",
-        "tailwind-merge": "^2.5.2"
+        "tailwind-merge": "^2.5.2",
+        "tw-animate-css": "^1.2.5"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.0.17",
