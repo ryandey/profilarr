@@ -39,7 +39,7 @@ const SortDropdown = ({
           text-gray-900 dark:text-gray-100
           rounded-md
           hover:bg-gray-50 dark:hover:bg-gray-700
-          focus:outline-none focus:ring-2 focus:ring-blue-500
+          focus:outline-hidden focus:ring-2 focus:ring-blue-500
           transition-all
         `}>
                 <span className='flex items-center gap-2'>

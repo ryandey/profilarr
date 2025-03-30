@@ -30,7 +30,7 @@ function SortMenu({sortBy, setSortBy}) {
             <div>
                 <button
                     type='button'
-                    className='inline-flex justify-between items-center w-full rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-gray-700 text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
+                    className='inline-flex justify-between items-center w-full rounded-md border border-gray-600 shadow-xs px-4 py-2 bg-gray-700 text-sm font-medium text-white hover:bg-gray-600 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
                     onClick={() => setIsOpen(!isOpen)}>
                     {options.find(option => option.value === sortBy)?.label}
                     <svg

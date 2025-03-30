@@ -465,7 +465,7 @@ const SettingsBranchModal = ({
                 </div>
 
                 {branchOffMode && (
-                    <div className='bg-gray-100 dark:bg-gray-800 p-4 rounded-lg !mt-1'>
+                    <div className='bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-1!'>
                         <div className='flex items-center space-x-2'>
                             <input
                                 type='text'
@@ -474,7 +474,7 @@ const SettingsBranchModal = ({
                                     validateBranchName(e.target.value)
                                 }
                                 placeholder={`New branch from ${branchOffMode}`}
-                                className={`flex-grow p-2 h-9 rounded-lg border text-sm ${
+                                className={`grow p-2 h-9 rounded-lg border text-sm ${
                                     !validBranchName
                                         ? 'border-red-500 dark:border-red-400'
                                         : 'border-gray-300 dark:border-gray-600'
@@ -487,7 +487,7 @@ const SettingsBranchModal = ({
                                     !validBranchName ||
                                     loadingAction === 'branchOff'
                                 }
-                                className='px-4 h-9 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium shadow-sm disabled:opacity-50'>
+                                className='px-4 h-9 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium shadow-xs disabled:opacity-50'>
                                 {loadingAction === 'branchOff'
                                     ? 'Creating...'
                                     : 'Create'}

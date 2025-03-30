@@ -48,7 +48,7 @@ const RegexCard = ({
 
     return (
         <div
-            className={`w-full h-[20rem] bg-gradient-to-br from-gray-800/95 to-gray-900 border ${
+            className={`w-full h-[20rem] bg-linear-to-br from-gray-800/95 to-gray-900 border ${
                 isSelected
                     ? 'border-blue-500'
                     : willBeSelected
@@ -76,7 +76,7 @@ const RegexCard = ({
                                     {pattern.tags.map(tag => (
                                         <span
                                             key={tag}
-                                            className='bg-blue-600/20 text-blue-400 px-1.5 py-0.5 rounded text-xs shadow-sm'>
+                                            className='bg-blue-600/20 text-blue-400 px-1.5 py-0.5 rounded-sm text-xs shadow-xs'>
                                             {tag}
                                         </span>
                                     ))}

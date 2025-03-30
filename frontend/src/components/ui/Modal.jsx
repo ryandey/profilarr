@@ -116,7 +116,7 @@ const Modal = ({
             />
             <div
                 ref={modalRef}
-                className={`relative bg-gradient-to-br from-gray-50 to-gray-100 
+                className={`relative bg-linear-to-br from-gray-50 to-gray-100 
                     dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-xl 
                     min-w-[320px] min-h-[200px] ${widthClasses[width]} ${
                     heightClasses[height]

@@ -61,7 +61,7 @@ const OutgoingChanges = ({
                     buttonRef.current &&
                     ReactDOM.createPortal(
                         <div
-                            className='fixed bg-gray-900 text-white p-2 rounded shadow-lg text-xs'
+                            className='fixed bg-gray-900 text-white p-2 rounded-sm shadow-lg text-xs'
                             style={{
                                 left:
                                     buttonRef.current.getBoundingClientRect()

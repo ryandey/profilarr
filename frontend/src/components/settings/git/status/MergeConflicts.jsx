@@ -37,7 +37,7 @@ const MergeConflicts = ({
                         <button
                             onClick={onMergeCommit}
                             disabled={!areAllConflictsResolved()}
-                            className={`p-1.5 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 
+                            className={`p-1.5 rounded-md text-white focus:outline-hidden focus:ring-2 focus:ring-offset-2 
                                 ${
                                     areAllConflictsResolved()
                                         ? 'bg-green-500 hover:bg-green-600 focus:ring-green-500'
@@ -49,7 +49,7 @@ const MergeConflicts = ({
                     <Tooltip content='Abort Merge'>
                         <button
                             onClick={onAbortMerge}
-                            className='p-1.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'>
+                            className='p-1.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500'>
                             <XCircle size={16} />
                         </button>
                     </Tooltip>

@@ -35,7 +35,7 @@ const ConditionCard = ({
     };
 
     return (
-        <div className='relative bg-gradient-to-br from-gray-800/95 to-gray-900 rounded-lg border border-gray-700 shadow-lg hover:shadow-xl transition-shadow'>
+        <div className='relative bg-linear-to-br from-gray-800/95 to-gray-900 rounded-lg border border-gray-700 shadow-lg hover:shadow-xl transition-shadow'>
             {/* Main content */}
             <div className='p-4 pr-14 space-y-4'>
                 {/* Custom Name Input */}
@@ -51,7 +51,7 @@ const ConditionCard = ({
                         className='w-full px-3 py-2 text-sm rounded-md
                             bg-gray-700 border border-gray-700
                             text-gray-200 placeholder:text-gray-400
-                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                            focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                             transition-colors'
                     />
                 </div>

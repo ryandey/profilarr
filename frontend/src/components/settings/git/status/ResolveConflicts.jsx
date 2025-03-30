@@ -96,7 +96,7 @@ const ResolveConflicts = ({
                                                 )
                                             }
                                             className='w-full p-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-md
-                                                 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent'>
+                                                 focus:outline-hidden focus:ring-2 focus:ring-gray-600 focus:border-transparent'>
                                             <option value='' disabled>
                                                 Select
                                             </option>

@@ -58,7 +58,7 @@ const LoginPage = ({onLoginComplete}) => {
                                             setUsername(e.target.value)
                                         }
                                         required
-                                        className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm'
+                                        className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-xs'
                                         placeholder='Enter your username'
                                     />
                                 </div>
@@ -78,7 +78,7 @@ const LoginPage = ({onLoginComplete}) => {
                                             setPassword(e.target.value)
                                         }
                                         required
-                                        className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm'
+                                        className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-xs'
                                         placeholder='Enter your password'
                                         autoFocus
                                     />
@@ -89,7 +89,7 @@ const LoginPage = ({onLoginComplete}) => {
                                 <button
                                     type='submit'
                                     disabled={loading}
-                                    className='w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200'>
+                                    className='w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200'>
                                     {loading ? 'Logging in...' : 'Login'}
                                 </button>
                             </div>
@@ -98,10 +98,10 @@ const LoginPage = ({onLoginComplete}) => {
                 </div>
 
                 {/* Info Card */}
-                <div className='w-80 flex-shrink-0'>
+                <div className='w-80 shrink-0'>
                     <div className='bg-blue-900/30 border border-blue-700 rounded-lg p-6 sticky top-4'>
                         <div className='flex items-start gap-3 mb-4'>
-                            <Shield className='h-6 w-6 text-blue-400 mt-1 flex-shrink-0' />
+                            <Shield className='h-6 w-6 text-blue-400 mt-1 shrink-0' />
                             <h3 className='text-lg font-medium text-blue-400'>
                                 Having trouble?
                             </h3>

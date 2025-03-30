@@ -140,7 +140,7 @@ const FormatConditionsTab = ({conditions, onConditionsChange}) => {
         <div className='h-full flex flex-col space-y-4'>
             <div className='flex items-center gap-4 h-16'>
                 <div className='flex-1 flex items-center gap-2 px-3 py-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md'>
-                    <InfoIcon className='h-4 w-4 text-blue-600 dark:text-blue-400 flex-shrink-0' />
+                    <InfoIcon className='h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0' />
                     <p className='text-sm text-blue-700 dark:text-blue-300'>
                         Define matching rules using required and negated
                         conditions to control how formats are applied to media

@@ -19,7 +19,7 @@ const MassActionsBar = ({
                 {showImport && (
                     <button
                         onClick={onImport}
-                        className='flex items-center gap-2 px-3 py-1 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded transition-colors'>
+                        className='flex items-center gap-2 px-3 py-1 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-sm transition-colors'>
                         <FolderUp className='w-4 h-4' />
                         Import
                     </button>
@@ -27,14 +27,14 @@ const MassActionsBar = ({
 
                 <button
                     onClick={onDelete}
-                    className='flex items-center gap-2 px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded transition-colors'>
+                    className='flex items-center gap-2 px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded-sm transition-colors'>
                     <Trash2 className='w-4 h-4' />
                     Delete
                 </button>
 
                 <button
                     onClick={onCancel}
-                    className='flex items-center gap-2 px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded transition-colors'>
+                    className='flex items-center gap-2 px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-sm transition-colors'>
                     <X className='w-4 h-4' />
                     Cancel
                 </button>

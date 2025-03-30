@@ -37,8 +37,8 @@ const FormatUnitTest = ({test, onEdit, onDelete}) => {
                     <div
                         className={`w-2 h-2 rounded-full ${
                             test.passes
-                                ? 'bg-green-500 shadow-sm shadow-green-500/50'
-                                : 'bg-red-500 shadow-sm shadow-red-500/50'
+                                ? 'bg-green-500 shadow-xs shadow-green-500/50'
+                                : 'bg-red-500 shadow-xs shadow-red-500/50'
                         }`}
                     />
                     <span className='text-sm font-medium text-gray-900 dark:text-gray-100'>
@@ -55,7 +55,7 @@ const FormatUnitTest = ({test, onEdit, onDelete}) => {
                     <div className='opacity-0 group-hover:opacity-100 transition-opacity flex gap-2'>
                         <button
                             onClick={() => onEdit(test)}
-                            className='p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded'>
+                            className='p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm'>
                             <svg
                                 className='w-4 h-4 text-gray-500 dark:text-gray-400'
                                 viewBox='0 0 24 24'
@@ -67,7 +67,7 @@ const FormatUnitTest = ({test, onEdit, onDelete}) => {
                         </button>
                         <button
                             onClick={() => onDelete(test.id)}
-                            className='p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded'>
+                            className='p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm'>
                             <svg
                                 className='w-4 h-4 text-gray-500 dark:text-gray-400'
                                 viewBox='0 0 24 24'

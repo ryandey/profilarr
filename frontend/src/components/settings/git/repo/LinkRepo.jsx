@@ -86,7 +86,7 @@ const LinkRepo = ({isOpen, onClose, onSubmit}) => {
             footer={
                 <div className='flex justify-end'>
                     <button
-                        className='bg-blue-600 text-white px-4 py-2 rounded border border-blue-600 hover:bg-blue-700 transition-colors flex items-center text-sm'
+                        className='bg-blue-600 text-white px-4 py-2 rounded-sm border border-blue-600 hover:bg-blue-700 transition-colors flex items-center text-sm'
                         disabled={loading}
                         onClick={handleSubmit}>
                         {loading ? (

@@ -11,7 +11,7 @@ const EmptyRepo = ({onLinkRepo, loadingAction}) => {
                 alt='GitHub'
                 className='w-8 h-8 filter invert'
             />
-            <div className='flex-grow'>
+            <div className='grow'>
                 <h2 className='text-lg font-medium text-white'>
                     No Repository Connected
                 </h2>

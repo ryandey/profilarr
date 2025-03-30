@@ -257,7 +257,7 @@ const ViewCommits = ({isOpen, onClose, repoUrl, currentBranch}) => {
                     {(aheadCount > 0 || behindCount > 0) && (
                         <div className='flex items-center space-x-3 text-sm px-2'>
                             {aheadCount > 0 && (
-                                <div className='flex items-center text-green-400 bg-green-400/10 px-2 py-1 rounded'>
+                                <div className='flex items-center text-green-400 bg-green-400/10 px-2 py-1 rounded-sm'>
                                     <ArrowUpRight size={14} className='mr-1' />
                                     <span>
                                         {aheadCount} commit
@@ -266,7 +266,7 @@ const ViewCommits = ({isOpen, onClose, repoUrl, currentBranch}) => {
                                 </div>
                             )}
                             {behindCount > 0 && (
-                                <div className='flex items-center text-blue-400 bg-blue-400/10 px-2 py-1 rounded'>
+                                <div className='flex items-center text-blue-400 bg-blue-400/10 px-2 py-1 rounded-sm'>
                                     <ArrowDownRight
                                         size={14}
                                         className='mr-1'

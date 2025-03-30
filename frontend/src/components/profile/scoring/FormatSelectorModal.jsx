@@ -83,9 +83,9 @@ const FormatSelectorModal = ({
                         )}
                     </div>
                     {isSelected ? (
-                        <Check className="text-green-500 dark:text-green-400 flex-shrink-0" size={16} />
+                        <Check className="text-green-500 dark:text-green-400 shrink-0" size={16} />
                     ) : (
-                        <Plus className="text-gray-400 dark:text-gray-500 flex-shrink-0" size={16} />
+                        <Plus className="text-gray-400 dark:text-gray-500 shrink-0" size={16} />
                     )}
                 </div>
             </div>

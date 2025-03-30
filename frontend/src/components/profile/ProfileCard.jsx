@@ -97,7 +97,7 @@ const ProfileCard = ({
 
     return (
         <div
-            className={`w-full h-[24rem] bg-gradient-to-br from-gray-800/95 to-gray-900 border ${
+            className={`w-full h-[24rem] bg-linear-to-br from-gray-800/95 to-gray-900 border ${
                 isSelected
                     ? 'border-blue-500'
                     : willBeSelected
@@ -125,7 +125,7 @@ const ProfileCard = ({
                                     {content.tags.map(tag => (
                                         <span
                                             key={`${profile.file_name}-${tag}`}
-                                            className='bg-blue-600/20 text-blue-400 px-2 py-1 rounded-md text-xs font-semibold shadow-sm'>
+                                            className='bg-blue-600/20 text-blue-400 px-2 py-1 rounded-md text-xs font-semibold shadow-xs'>
                                             {unsanitize(tag)}
                                         </span>
                                     ))}
@@ -183,7 +183,7 @@ const ProfileCard = ({
                                         {pref}
                                     </span>
                                     {index < qualityPreferences.length - 1 && (
-                                        <ChevronRight className='w-4 h-4 text-blue-400 flex-shrink-0' />
+                                        <ChevronRight className='w-4 h-4 text-blue-400 shrink-0' />
                                     )}
                                 </React.Fragment>
                             ))}

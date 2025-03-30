@@ -50,8 +50,8 @@ const UnitTest = ({test, pattern, onDelete, onEdit}) => {
                             w-2 h-2 rounded-full
                             ${
                                 test.passes
-                                    ? 'bg-emerald-500 shadow-sm shadow-emerald-500/50'
-                                    : 'bg-red-500 shadow-sm shadow-red-500/50'
+                                    ? 'bg-emerald-500 shadow-xs shadow-emerald-500/50'
+                                    : 'bg-red-500 shadow-xs shadow-red-500/50'
                             }
                         `}
                         />
@@ -75,12 +75,12 @@ const UnitTest = ({test, pattern, onDelete, onEdit}) => {
                         <div className='flex gap-2'>
                             <button
                                 onClick={onEdit}
-                                className='p-1 rounded shrink-0 transition-transform transform hover:scale-110'>
+                                className='p-1 rounded-sm shrink-0 transition-transform transform hover:scale-110'>
                                 <Pencil className='w-4 h-4 text-gray-500 dark:text-gray-400' />
                             </button>
                             <button
                                 onClick={() => setShowDeleteModal(true)}
-                                className='p-1 rounded shrink-0 transition-transform transform hover:scale-110'>
+                                className='p-1 rounded-sm shrink-0 transition-transform transform hover:scale-110'>
                                 <Trash2 className='w-4 h-4 text-gray-500 dark:text-gray-400' />
                             </button>
                         </div>
@@ -90,7 +90,7 @@ const UnitTest = ({test, pattern, onDelete, onEdit}) => {
                 {/* Content */}
                 <div className='p-2 flex items-start gap-3'>
                     <div className='flex-1 min-w-0'>
-                        <div className='rounded bg-white/75 dark:bg-black/25 px-2 py-1.5 text-xs'>
+                        <div className='rounded-sm bg-white/75 dark:bg-black/25 px-2 py-1.5 text-xs'>
                             {renderHighlightedInput()}
                         </div>
                     </div>

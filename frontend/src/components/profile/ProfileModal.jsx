@@ -535,7 +535,7 @@ function ProfileModal({
                     {initialProfile && (
                         <button
                             onClick={handleDelete}
-                            className='inline-flex items-center gap-2 px-4 py-2 rounded bg-gray-800 border border-gray-700 text-gray-200 hover:bg-gray-700 transition-colors'>
+                            className='inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-gray-800 border border-gray-700 text-gray-200 hover:bg-gray-700 transition-colors'>
                             {isDeleting ? (
                                 <Check className="w-4 h-4 text-green-500" />
                             ) : (
@@ -546,7 +546,7 @@ function ProfileModal({
                     )}
                     <button
                         onClick={handleSave}
-                        className='inline-flex items-center gap-2 px-4 py-2 rounded bg-gray-800 border border-gray-700 text-gray-200 hover:bg-gray-700 transition-colors'>
+                        className='inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-gray-800 border border-gray-700 text-gray-200 hover:bg-gray-700 transition-colors'>
                         {isSaving ? (
                             <Check className="w-4 h-4 text-green-500" />
                         ) : (

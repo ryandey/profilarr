@@ -17,7 +17,7 @@ const SizeCondition = ({condition, onChange}) => {
                 placeholder={placeholder}
                 className='w-40 px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 
                  rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 
-                 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+                 focus:outline-hidden focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
             />
             <select
                 value={unitValue || 'MB'}

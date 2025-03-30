@@ -43,7 +43,7 @@ const ConflictState = ({onNavigateSettings}) => (
             <h4 className='text-xl font-extrabold'>Merge Conflicts Detected</h4>
             <button
                 onClick={onNavigateSettings}
-                className='bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition'>
+                className='bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-sm transition'>
                 Resolve Conflicts
             </button>
         </div>
@@ -345,7 +345,7 @@ function FormatPage() {
                 addButtonLabel='Add New Format'
             />
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-grow'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grow'>
                 {filteredFormats.map((format, index) => (
                     <div
                         key={format.file_name}

@@ -62,13 +62,13 @@ const ImportModal = ({isOpen, onClose, onImport, type}) => {
                 <div className='flex justify-end gap-2'>
                     <button
                         onClick={onClose}
-                        className='px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors'>
+                        className='px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm transition-colors'>
                         Cancel
                     </button>
                     <button
                         onClick={handleImport}
                         disabled={!selectedArr || isLoading || isImporting}
-                        className='px-4 py-2 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 dark:disabled:bg-blue-700 text-white rounded transition-colors'>
+                        className='px-4 py-2 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 dark:disabled:bg-blue-700 text-white rounded-sm transition-colors'>
                         {isImporting ? 'Importing...' : 'Import'}
                     </button>
                 </div>
@@ -79,7 +79,7 @@ const ImportModal = ({isOpen, onClose, onImport, type}) => {
                         Select Arr
                     </label>
                     {isLoading ? (
-                        <div className='animate-pulse bg-gray-200 dark:bg-gray-700 h-10 rounded'></div>
+                        <div className='animate-pulse bg-gray-200 dark:bg-gray-700 h-10 rounded-sm'></div>
                     ) : arrs.length > 0 ? (
                         <select
                             value={selectedArr}
@@ -87,7 +87,7 @@ const ImportModal = ({isOpen, onClose, onImport, type}) => {
                                 setSelectedArr(e.target.value);
                                 setError('');
                             }}
-                            className='w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                            className='w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-xs focus:outline-hidden focus:ring-2 focus:ring-blue-500'>
                             <option value=''>Select an arr...</option>
                             {arrs.map(arr => (
                                 <option key={arr.id} value={arr.id}>

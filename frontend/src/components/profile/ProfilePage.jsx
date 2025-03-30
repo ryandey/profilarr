@@ -37,7 +37,7 @@ const ConflictState = ({onNavigateSettings}) => (
             <h4 className='text-xl font-extrabold'>Merge Conflicts Detected</h4>
             <button
                 onClick={onNavigateSettings}
-                className='bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition'>
+                className='bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-sm transition'>
                 Resolve Conflicts
             </button>
         </div>

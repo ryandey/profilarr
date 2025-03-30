@@ -83,7 +83,7 @@ const FormatGeneralTab = ({
                         bg-gray-50 dark:bg-gray-800 px-3 py-2 text-sm
                         text-gray-900 dark:text-gray-100
                         placeholder-gray-500 dark:placeholder-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                        focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent
                         transition-colors duration-200'
                     />
                 </div>
@@ -127,7 +127,7 @@ const FormatGeneralTab = ({
                             bg-gray-50 dark:bg-gray-800 px-3 py-2 text-sm
                             text-gray-900 dark:text-gray-100
                             placeholder-gray-500 dark:placeholder-gray-400
-                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                            focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent
                             transition-colors duration-200'
                         />
                         <AddButton
@@ -150,7 +150,7 @@ const FormatGeneralTab = ({
                                         onClick={() => onRemoveTag(tag)}
                                         className='ml-1.5 p-0.5 rounded-md
                                         hover:bg-blue-500/20
-                                        focus:outline-none focus:ring-2
+                                        focus:outline-hidden focus:ring-2
                                         focus:ring-blue-500 focus:ring-offset-1
                                         transition-colors duration-200'>
                                         <svg

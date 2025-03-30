@@ -55,7 +55,7 @@ const QualityItemGroup = ({
                             {quality.qualities.map(q => (
                                 <span
                                     key={q.id}
-                                    className='inline-flex px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300'>
+                                    className='inline-flex px-1.5 py-0.5 rounded-sm text-[10px] font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300'>
                                     {q.name}
                                 </span>
                             ))}
@@ -73,7 +73,7 @@ const QualityItemGroup = ({
                     {/* App Icons */}
                     <div className='flex items-center gap-1.5'>
                         {quality.radarr && (
-                            <div className='flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 rounded px-1.5 py-0.5'>
+                            <div className='flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 rounded-sm px-1.5 py-0.5'>
                                 <img
                                     src={RadarrLogo}
                                     className='w-3 h-3 mr-1'
@@ -85,7 +85,7 @@ const QualityItemGroup = ({
                             </div>
                         )}
                         {quality.sonarr && (
-                            <div className='flex items-center bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 rounded px-1.5 py-0.5'>
+                            <div className='flex items-center bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 rounded-sm px-1.5 py-0.5'>
                                 <img
                                     src={SonarrLogo}
                                     className='w-3 h-3 mr-1'
@@ -106,7 +106,7 @@ const QualityItemGroup = ({
                                     e.stopPropagation();
                                     onEdit(quality);
                                 }}
-                                className='flex items-center justify-center h-6 w-6 rounded text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 border border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600 transition-colors'>
+                                className='flex items-center justify-center h-6 w-6 rounded-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 border border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600 transition-colors'>
                                 <Pencil className='w-3 h-3' />
                             </button>
                         )}
@@ -116,7 +116,7 @@ const QualityItemGroup = ({
                                     e.stopPropagation();
                                     onDelete(quality);
                                 }}
-                                className='flex items-center justify-center h-6 w-6 rounded text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-200 border border-red-200 hover:border-red-300 dark:border-red-800/40 dark:hover:border-red-700/40 transition-colors'>
+                                className='flex items-center justify-center h-6 w-6 rounded-sm text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-200 border border-red-200 hover:border-red-300 dark:border-red-800/40 dark:hover:border-red-700/40 transition-colors'>
                                 <Trash2 className='w-3 h-3' />
                             </button>
                         )}

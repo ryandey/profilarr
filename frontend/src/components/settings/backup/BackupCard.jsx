@@ -41,7 +41,7 @@ const BackupCard = ({
                             <RefreshCw size={16} />
                         )}
                     </button>
-                    <span className='absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2'>
+                    <span className='absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded-sm py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2'>
                         Restore Backup
                     </span>
                 </div>
@@ -51,7 +51,7 @@ const BackupCard = ({
                         className='p-2 rounded-md bg-gray-700 hover:bg-gray-600 transition-colors'>
                         <Download size={16} />
                     </button>
-                    <span className='absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2'>
+                    <span className='absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded-sm py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2'>
                         Download Backup
                     </span>
                 </div>
@@ -66,7 +66,7 @@ const BackupCard = ({
                             <Trash2 size={16} />
                         )}
                     </button>
-                    <span className='absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2'>
+                    <span className='absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded-sm py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2'>
                         Delete Backup
                     </span>
                 </div>

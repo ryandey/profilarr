@@ -66,7 +66,7 @@ function FormatCard({
 
     return (
         <div
-            className={`w-full h-[12rem] bg-gradient-to-br from-gray-800/95 to-gray-900 border ${
+            className={`w-full h-[12rem] bg-linear-to-br from-gray-800/95 to-gray-900 border ${
                 isSelected
                     ? 'border-blue-500'
                     : willBeSelected
@@ -93,7 +93,7 @@ function FormatCard({
                                 {content.tags?.map(tag => (
                                     <span
                                         key={tag}
-                                        className='bg-blue-600/20 text-blue-400 px-1.5 py-0.5 rounded font-semibold whitespace-nowrap'>
+                                        className='bg-blue-600/20 text-blue-400 px-1.5 py-0.5 rounded-sm font-semibold whitespace-nowrap'>
                                         {tag}
                                     </span>
                                 ))}
@@ -110,7 +110,7 @@ function FormatCard({
                             }>
                             <button
                                 onClick={handleViewToggle}
-                                className='w-7 h-7 flex items-center justify-center rounded hover:bg-gray-700/50 transition-colors text-gray-400 hover:text-white relative'>
+                                className='w-7 h-7 flex items-center justify-center rounded-sm hover:bg-gray-700/50 transition-colors text-gray-400 hover:text-white relative'>
                                 {showDescription ? (
                                     <ListFilter className='w-4 h-4' />
                                 ) : (
@@ -121,7 +121,7 @@ function FormatCard({
                         {!isSelectionMode && (
                             <button
                                 onClick={handleCloneClick}
-                                className='text-gray-400 hover:text-white transition-colors w-7 h-7 flex items-center justify-center rounded hover:bg-gray-700/50 relative'>
+                                className='text-gray-400 hover:text-white transition-colors w-7 h-7 flex items-center justify-center rounded-sm hover:bg-gray-700/50 relative'>
                                 <Copy className='w-4 h-4' />
                             </button>
                         )}
@@ -168,7 +168,7 @@ function FormatCard({
                                 : 'translate-x-0'
                         }`}>
                         {/* Conditions */}
-                        <div className='w-full flex-shrink-0 overflow-y-auto scrollable'>
+                        <div className='w-full shrink-0 overflow-y-auto scrollable'>
                             <div className='flex flex-wrap gap-1.5 content-start'>
                                 {content.conditions?.map((condition, index) => (
                                     <span

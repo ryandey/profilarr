@@ -211,7 +211,7 @@ const ArrModal = ({isOpen, onClose, onSubmit, editingArr}) => {
                         {formData.tags.map((tag, index) => (
                             <span
                                 key={index}
-                                className='inline-flex items-center bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs rounded px-2 py-1'>
+                                className='inline-flex items-center bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs rounded-sm px-2 py-1'>
                                 {tag}
                                 <button
                                     type='button'
@@ -338,7 +338,7 @@ const ArrModal = ({isOpen, onClose, onSubmit, editingArr}) => {
                                         }
                                     })
                                 }
-                                className='rounded border-gray-300 text-blue-600 focus:ring-blue-500'
+                                className='rounded-sm border-gray-300 text-blue-600 focus:ring-blue-500'
                             />
                             <span className='text-sm text-gray-700 dark:text-gray-300'>
                                 Import as Unique

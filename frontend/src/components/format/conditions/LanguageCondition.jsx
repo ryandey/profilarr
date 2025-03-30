@@ -40,7 +40,7 @@ const LanguageCondition = ({condition, onChange}) => {
                             exceptLanguage: e.target.checked
                         })
                     }
-                    className='rounded border-gray-300 dark:border-gray-600'
+                    className='rounded-sm border-gray-300 dark:border-gray-600'
                 />
                 Except Language
             </label>

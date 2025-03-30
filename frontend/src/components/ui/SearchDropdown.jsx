@@ -115,7 +115,7 @@ const SearchDropdown = ({
                 className={`w-full flex items-center justify-between px-3 py-2 text-sm 
                 border rounded-md
                 bg-gray-700 border-gray-600 text-gray-100 hover:border-gray-500 
-                focus:outline-none focus:ring-2 focus:ring-blue-500 
+                focus:outline-hidden focus:ring-2 focus:ring-blue-500 
                 transition-colors ${className}`}>
                 <span className='truncate'>
                     {selectedOption
@@ -141,10 +141,10 @@ const SearchDropdown = ({
                         maxHeight: '700px',
                         left: '0'
                     }}>
-                    <div className='p-3 bg-gray-800 shadow-sm relative'>
+                    <div className='p-3 bg-gray-800 shadow-xs relative'>
                         <div className='absolute left-0 right-0 bottom-0 h-px bg-gray-700/50'></div>
                         <div className='flex items-center gap-2'>
-                            <div className='flex-grow'>
+                            <div className='grow'>
                                 <SearchBar
                                     placeholder='Search options...'
                                     searchTerms={searchTerms}
@@ -164,7 +164,7 @@ const SearchDropdown = ({
                                 sortOptions={sortOptions}
                                 currentSort={sortConfig}
                                 onSortChange={updateSort}
-                                className='flex-shrink-0'
+                                className='shrink-0'
                                 textSize='text-xs'
                                 menuTextSize='text-xs'
                                 iconSize={14}
@@ -198,12 +198,12 @@ const SearchDropdown = ({
                                                 }
                                                 `}>
                                         <div className='flex items-center'>
-                                            <div className='flex-grow truncate'>
+                                            <div className='grow truncate'>
                                                 {option[labelKey]}
                                             </div>
                                             {selectedOption?.[valueKey] ===
                                                 option[valueKey] && (
-                                                <Check className='w-3.5 h-3.5 ml-1.5 flex-shrink-0' />
+                                                <Check className='w-3.5 h-3.5 ml-1.5 shrink-0' />
                                             )}
                                         </div>
                                     </div>

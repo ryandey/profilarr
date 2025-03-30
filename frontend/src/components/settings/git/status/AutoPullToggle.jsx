@@ -47,7 +47,7 @@ const AutoPullToggle = () => {
             </span>
             <button
                 onClick={handleClick}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 ease-in-out focus:outline-none ${
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 ease-in-out focus:outline-hidden ${
                     isEnabled ? 'bg-green-500' : 'bg-gray-600'
                 }`}>
                 <span

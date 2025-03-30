@@ -50,9 +50,9 @@ const CommitSection = ({commitMessage, setCommitMessage}) => {
     }, [type, scope, subject, body, footer, setCommitMessage]);
 
     const selectStyles =
-        'bg-gray-900 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
+        'bg-gray-900 text-sm text-gray-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
     const inputStyles =
-        'bg-gray-900 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
+        'bg-gray-900 text-sm text-gray-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
 
     return (
         <div className='mt-4 space-y-4'>

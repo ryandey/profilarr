@@ -276,7 +276,7 @@ const StatusContainer = ({
     }, [selectionType]);
 
     return (
-        <div className='bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden'>
+        <div className='bg-linear-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden'>
             <div className='p-6 space-y-4'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center justify-between w-full'>
@@ -398,7 +398,7 @@ const StatusContainer = ({
                         <div className='flex justify-end space-x-3'>
                             <button
                                 onClick={handleAbortMerge}
-                                className='px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'>
+                                className='px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500'>
                                 Abort Merge
                             </button>
                         </div>

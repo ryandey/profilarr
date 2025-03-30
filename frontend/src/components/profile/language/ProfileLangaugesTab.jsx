@@ -257,7 +257,7 @@ const ProfileLanguagesTab = ({language, onLanguageChange}) => {
                                             e.target.value
                                         )
                                     }
-                                    className='w-full appearance-none rounded-md border border-gray-600 bg-gray-800 px-3 py-2 text-sm text-gray-100 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 pr-8'>
+                                    className='w-full appearance-none rounded-md border border-gray-600 bg-gray-800 px-3 py-2 text-sm text-gray-100 focus:border-blue-500 focus:outline-hidden focus:ring-1 focus:ring-blue-500 pr-8'>
                                     <option value='any'>Any</option>
                                     <option value='must'>Must Include</option>
                                     <option value='only'>Must Only Be</option>
@@ -321,7 +321,7 @@ const ProfileLanguagesTab = ({language, onLanguageChange}) => {
                     {/* Simple mode help */}
                     {!isAdvancedView && (
                         <div className='flex items-center gap-1.5 text-xs text-gray-400'>
-                            <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                            <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                             <p>
                                 {language === 'any' ? (
                                     <>
@@ -365,14 +365,14 @@ const ProfileLanguagesTab = ({language, onLanguageChange}) => {
                         <>
                             {language === 'any' && (
                                 <div className='flex items-center gap-1.5 text-xs text-gray-400'>
-                                    <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                                    <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                                     <p>Accept content in any language.</p>
                                 </div>
                             )}
 
                             {language && language.startsWith('must_') && (
                                 <div className='flex items-center gap-1.5 text-xs text-gray-400'>
-                                    <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                                    <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                                     <p>
                                         Content must include{' '}
                                         <span className='font-medium text-gray-200'>
@@ -393,7 +393,7 @@ const ProfileLanguagesTab = ({language, onLanguageChange}) => {
 
                             {language && language.startsWith('only_') && (
                                 <div className='flex items-center gap-1.5 text-xs'>
-                                    <AlertTriangle className='h-3.5 w-3.5 text-amber-500 flex-shrink-0' />
+                                    <AlertTriangle className='h-3.5 w-3.5 text-amber-500 shrink-0' />
                                     <p className='text-amber-400'>
                                         Content must ONLY be in{' '}
                                         <span className='font-medium text-amber-300'>
@@ -414,7 +414,7 @@ const ProfileLanguagesTab = ({language, onLanguageChange}) => {
 
                             {language && language.startsWith('mustnot_') && (
                                 <div className='flex items-center gap-1.5 text-xs text-gray-400'>
-                                    <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                                    <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                                     <p>
                                         Content must NOT include{' '}
                                         <span className='font-medium text-gray-200'>

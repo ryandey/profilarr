@@ -13,7 +13,7 @@ const LogMenu = ({
     handleChange
 }) => {
     const selectStyles =
-        'bg-gray-900 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
+        'bg-gray-900 text-sm text-gray-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
 
     const formatLogType = type => {
         return type.charAt(0).toUpperCase() + type.slice(1);

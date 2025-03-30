@@ -93,7 +93,7 @@ const SearchBar = ({
                             rounded-md shadow-sm
                             hover:bg-blue-500/15 dark:hover:bg-blue-500/25
                             hover:border-blue-500/30 dark:hover:border-blue-400/30
-                            group/badge flex-shrink-0
+                            group/badge shrink-0
                             transition-all duration-200
                         `}>
                         <span
@@ -125,7 +125,7 @@ const SearchBar = ({
                     className={`flex-1 min-w-[200px] bg-transparent 
             ${textSize} text-gray-900 dark:text-gray-100
             placeholder:text-gray-500 dark:placeholder:text-gray-400
-            focus:outline-none`}
+            focus:outline-hidden`}
                 />
             </div>
 

@@ -10,7 +10,7 @@ const DiffCommit = ({commitMessage}) => {
         if (line.startsWith('* ') || line.startsWith('- ')) {
             return (
                 <div key={index} className='flex items-center py-0.5'>
-                    <span className='mr-2 h-1 w-1 flex-shrink-0 rounded-full bg-gray-400' />
+                    <span className='mr-2 h-1 w-1 shrink-0 rounded-full bg-gray-400' />
                     <span>{line.slice(2)}</span>
                 </div>
             );

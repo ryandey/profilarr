@@ -240,7 +240,7 @@ const RepoContainer = ({settings, setSettings, fetchGitStatus, status}) => {
 
     return (
         <div className='space-y-4 mb-6'>
-            <div className='bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden'>
+            <div className='bg-linear-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden'>
                 <div className='p-6'>
                     {!settings ? (
                         <EmptyRepo

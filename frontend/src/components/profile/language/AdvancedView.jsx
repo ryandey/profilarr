@@ -36,7 +36,7 @@ const AdvancedView = ({language, onLanguageChange}) => {
                 onChange={e =>
                     handleLanguageChange('behavior', e.target.value)
                 }
-                className='flex-1 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400'>
+                className='flex-1 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:border-blue-500 dark:focus:border-blue-400 focus:outline-hidden focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400'>
                 <option value='any'>Any</option>
                 <option value='must'>Must Include</option>
                 <option value='only'>Must Only Be</option>
@@ -53,7 +53,7 @@ const AdvancedView = ({language, onLanguageChange}) => {
                             e.target.value
                         )
                     }
-                    className='flex-1 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400'>
+                    className='flex-1 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:border-blue-500 dark:focus:border-blue-400 focus:outline-hidden focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400'>
                     {LANGUAGES.map(language => (
                         <option
                             key={language.id}
@@ -69,14 +69,14 @@ const AdvancedView = ({language, onLanguageChange}) => {
             <div>
                 {currentBehavior === 'any' && (
                     <div className='flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400'>
-                        <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                        <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                         <p>Accept content in any language.</p>
                     </div>
                 )}
 
                 {currentBehavior === 'must' && (
                     <div className='flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400'>
-                        <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                        <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                         <p>
                             Content must include{' '}
                             {currentLanguage
@@ -91,7 +91,7 @@ const AdvancedView = ({language, onLanguageChange}) => {
 
                 {currentBehavior === 'only' && (
                     <div className='flex items-center gap-1.5 text-xs'>
-                        <AlertTriangle className='h-3.5 w-3.5 text-amber-500 flex-shrink-0' />
+                        <AlertTriangle className='h-3.5 w-3.5 text-amber-500 shrink-0' />
                         <p className='text-amber-600 dark:text-amber-400'>
                             Content must ONLY be in{' '}
                             {currentLanguage
@@ -107,7 +107,7 @@ const AdvancedView = ({language, onLanguageChange}) => {
 
                 {currentBehavior === 'mustnot' && (
                     <div className='flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400'>
-                        <InfoIcon className='h-3.5 w-3.5 text-blue-500 flex-shrink-0' />
+                        <InfoIcon className='h-3.5 w-3.5 text-blue-500 shrink-0' />
                         <p>
                             Content must NOT include{' '}
                             {currentLanguage

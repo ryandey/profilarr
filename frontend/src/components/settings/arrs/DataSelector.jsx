@@ -106,7 +106,7 @@ const DataSelector = ({
                             : customFormats.includes(item.name)
                     }
                     onChange={() => onDataToggle(type, item.name)}
-                    className='rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-0'
+                    className='rounded-sm border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-0'
                 />
                 <span
                     className='ml-3 text-sm text-gray-700 dark:text-gray-300 

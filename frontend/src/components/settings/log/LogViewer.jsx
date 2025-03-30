@@ -60,7 +60,7 @@ const LogViewer = ({
                         onClick={() =>
                             setZoom(prev => Math.max(0.5, prev - 0.1))
                         }
-                        className='text-gray-400 hover:text-white px-2 py-1 rounded'>
+                        className='text-gray-400 hover:text-white px-2 py-1 rounded-sm'>
                         -
                     </button>
                     <span className='text-gray-300 text-sm w-12 text-center'>
@@ -68,7 +68,7 @@ const LogViewer = ({
                     </span>
                     <button
                         onClick={() => setZoom(prev => Math.min(2, prev + 0.1))}
-                        className='text-gray-400 hover:text-white px-2 py-1 rounded'>
+                        className='text-gray-400 hover:text-white px-2 py-1 rounded-sm'>
                         +
                     </button>
                 </div>
@@ -99,7 +99,7 @@ const LogViewer = ({
                         {logContent.map((line, lineIdx) => (
                             <pre
                                 key={lineIdx}
-                                className='py-1 px-2 hover:bg-gray-700 rounded transition-colors whitespace-pre-wrap break-all font-mono'>
+                                className='py-1 px-2 hover:bg-gray-700 rounded-sm transition-colors whitespace-pre-wrap break-all font-mono'>
                                 {parseAnsiLine(line).map((part, partIdx) => (
                                     <span
                                         key={partIdx}
