@@ -41,8 +41,8 @@ const AutoPullToggle = () => {
     };
 
     return (
-        <div className='flex items-center gap-2 ml-auto'>
-            <span className='text-sm text-gray-400'>
+        <div className='flex items-center gap-2'>
+            <span className='text-sm text-muted-foreground'>
                 {isEnabled ? 'Auto sync enabled' : 'Auto sync disabled'}
             </span>
             <button
