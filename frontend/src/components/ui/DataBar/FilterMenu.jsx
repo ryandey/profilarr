@@ -1,5 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import {Filter} from 'lucide-react';
+import {Button} from '@/components/ui/Button';
 
 function FilterMenu({
     filterType,
@@ -35,13 +36,9 @@ function FilterMenu({
 
     return (
         <div className='relative' ref={dropdownRef}>
-            <button
-                type='button'
+            <Button
+                variant='outline'
                 className={`
-          flex items-center gap-2 px-3 py-2 rounded-md
-          border border-gray-200 dark:border-gray-700
-          transition-all duration-150 ease-in-out
-          group
           ${
               hasActiveFilter
                   ? 'bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800'
@@ -72,7 +69,7 @@ function FilterMenu({
                         : options.find(option => option.value === filterType)
                               ?.label}
                 </span>
-            </button>
+            </Button>
 
             {isOpen && (
                 <div className='absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-10'>

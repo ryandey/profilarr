@@ -1,15 +1,13 @@
 import React from 'react';
 import {CheckSquare} from 'lucide-react';
+import {Button} from '@/components/ui/Button';
 
 const ToggleSelectButton = ({isSelectionMode, onClick, shortcutKey = 'A'}) => {
     return (
-        <button
+        <Button
+            variant='outline'
             onClick={onClick}
             className={`
-        flex items-center gap-2 px-3 py-2 rounded-md
-        border border-gray-200 dark:border-gray-700
-        transition-all duration-150 ease-in-out
-        group
         ${
             isSelectionMode
                 ? 'bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800'
@@ -26,8 +24,8 @@ const ToggleSelectButton = ({isSelectionMode, onClick, shortcutKey = 'A'}) => {
         }
       `}
             />
-            <span className='text-sm font-medium'>Select</span>
-        </button>
+            <span>Select</span>
+        </Button>
     );
 };
 
