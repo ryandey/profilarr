@@ -17,8 +17,9 @@ import {ToastContainer} from 'react-toastify';
 import {checkSetupStatus} from '@api/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import ErrorBoundary from '@ui/ErrorBoundary';
+import {ThemeProvider} from './components/theme-provider';
+
 function App() {
-    const [darkMode, setDarkMode] = useState(true);
     const [authState, setAuthState] = useState({
         checking: true,
         needsSetup: false,
@@ -34,13 +35,13 @@ function App() {
         };
     }, []);
 
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [darkMode]);
+    // useEffect(() => {
+    //     if (darkMode) {
+    //         document.documentElement.classList.add('dark');
+    //     } else {
+    //         document.documentElement.classList.remove('dark');
+    //     }
+    // }, [darkMode]);
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -138,11 +139,12 @@ function App() {
     }
 
     return (
-        <>
+        <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
             <Router>
                 <ErrorBoundary>
-                    <div className='min-h-screen flex flex-col bg-gray-900 text-gray-100'>
-                        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+                    <div className='min-h-screen flex flex-col bg-background text-foreground'>
+                        {/* <Navbar darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+                        <Navbar />
                         <div className='max-w-(--breakpoint-2xl) mx-auto px-4 sm:px-6 lg:px-8 mt-2 grow flex-1 w-full'>
                             <Routes>
                                 <Route path='/regex' element={<RegexPage />} />
@@ -180,7 +182,7 @@ function App() {
                 pauseOnHover
                 theme='dark'
             />
-        </>
+        </ThemeProvider>
     );
 }
 export default App;
