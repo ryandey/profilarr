@@ -1,40 +1,9 @@
-import PropTypes from 'prop-types';
 import {useState, useEffect, useRef, useLayoutEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
+import {ThemeToggle} from './ThemeToggle';
 import Logo from '@ui/Logo';
 
-function ToggleSwitch({checked, onChange}) {
-    return (
-        <label className='flex items-center cursor-pointer'>
-            <div className='relative'>
-                <input
-                    type='checkbox'
-                    className='sr-only'
-                    checked={checked}
-                    onChange={onChange}
-                />
-                <div
-                    className={`block w-14 h-8 rounded-full ${
-                        checked ? 'bg-blue-600' : 'bg-gray-600'
-                    } transition-colors duration-300`}></div>
-                <div
-                    className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${
-                        checked ? 'transform translate-x-6' : ''
-                    }`}></div>
-            </div>
-            <div className='ml-3 text-gray-300 font-medium'>
-                {checked ? 'Dark' : 'Light'}
-            </div>
-        </label>
-    );
-}
-
-ToggleSwitch.propTypes = {
-    checked: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
-};
-
-function Navbar({darkMode, setDarkMode}) {
+function Navbar() {
     const [tabOffset, setTabOffset] = useState(0);
     const [tabWidth, setTabWidth] = useState(0);
     const tabsRef = useRef({});
@@ -137,19 +106,11 @@ function Navbar({darkMode, setDarkMode}) {
                             </Link>
                         </div>
                     </div>
-                    <ToggleSwitch
-                        checked={darkMode}
-                        onChange={() => setDarkMode(!darkMode)}
-                    />
+                    <ThemeToggle />
                 </div>
             </div>
         </nav>
     );
 }
-
-Navbar.propTypes = {
-    darkMode: PropTypes.bool.isRequired,
-    setDarkMode: PropTypes.func.isRequired
-};
 
 export default Navbar;
