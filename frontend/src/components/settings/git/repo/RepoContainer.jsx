@@ -87,11 +87,16 @@ const RepoContainer = ({settings, setSettings, fetchGitStatus, status}) => {
                 // Try to fetch the avatar if needed
                 if (!isAvatarValid) {
                     try {
-                        const avatarResponse = await fetch(`https://api.github.com/users/${owner}`);
-                        
+                        const avatarResponse = await fetch(
+                            `https://api.github.com/users/${owner}`
+                        );
+
                         if (avatarResponse.ok) {
                             const userData = await avatarResponse.json();
-                            localStorage.setItem(avatarCacheKey, userData.avatar_url);
+                            localStorage.setItem(
+                                avatarCacheKey,
+                                userData.avatar_url
+                            );
                             localStorage.setItem(
                                 `${avatarCacheKey}-timestamp`,
                                 Date.now().toString()
@@ -107,12 +112,14 @@ const RepoContainer = ({settings, setSettings, fetchGitStatus, status}) => {
                         if (cachedAvatar) setAvatarUrl(cachedAvatar);
                     }
                 }
-                
+
                 // Try to fetch repo stats if needed
                 if (!isStatsValid) {
                     try {
-                        const repoResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
-                        
+                        const repoResponse = await fetch(
+                            `https://api.github.com/repos/${owner}/${repo}`
+                        );
+
                         if (repoResponse.ok) {
                             const repoData = await repoResponse.json();
                             const stats = {
@@ -120,13 +127,19 @@ const RepoContainer = ({settings, setSettings, fetchGitStatus, status}) => {
                                 forks: repoData.forks_count,
                                 issues: repoData.open_issues_count
                             };
-                            localStorage.setItem(statsCacheKey, JSON.stringify(stats));
+                            localStorage.setItem(
+                                statsCacheKey,
+                                JSON.stringify(stats)
+                            );
                             localStorage.setItem(
                                 `${statsCacheKey}-timestamp`,
                                 Date.now().toString()
                             );
                             setRepoStats(stats);
-                        } else if (repoResponse.status === 404 || repoResponse.status === 403) {
+                        } else if (
+                            repoResponse.status === 404 ||
+                            repoResponse.status === 403
+                        ) {
                             // Repository not found or private - set empty stats
                             const privateRepoStats = {
                                 stars: '-',
@@ -135,7 +148,10 @@ const RepoContainer = ({settings, setSettings, fetchGitStatus, status}) => {
                                 isPrivate: true
                             };
                             setRepoStats(privateRepoStats);
-                            localStorage.setItem(statsCacheKey, JSON.stringify(privateRepoStats));
+                            localStorage.setItem(
+                                statsCacheKey,
+                                JSON.stringify(privateRepoStats)
+                            );
                             localStorage.setItem(
                                 `${statsCacheKey}-timestamp`,
                                 Date.now().toString()
@@ -240,8 +256,8 @@ const RepoContainer = ({settings, setSettings, fetchGitStatus, status}) => {
 
     return (
         <div className='space-y-4 mb-6'>
-            <div className='bg-linear-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden'>
-                <div className='p-6'>
+            <div className='bg-linear-to-br from-gray-50 to-gray-100 border border-gray-300 rounded-lg shadow-lg overflow-hidden dark:from-gray-800 dark:to-gray-900 dark:border-gray-700 dark:shadow-xl'>
+                <div className='p-8'>
                     {!settings ? (
                         <EmptyRepo
                             onLinkRepo={handleLinkRepo}
