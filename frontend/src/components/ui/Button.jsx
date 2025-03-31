@@ -9,8 +9,7 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                default:
-                    'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+                default: 'bg-blue-500 text-white shadow hover:bg-blue-600',
                 destructive:
                     'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
                 outline:
@@ -34,7 +33,7 @@ const buttonVariants = cva(
     }
 );
 
-const Button = React.forwardRef(
+export const Button = React.forwardRef(
     ({className, variant, size, asChild = false, ...props}, ref) => {
         const Comp = asChild ? Slot : 'button';
         return (
@@ -48,4 +47,4 @@ const Button = React.forwardRef(
 );
 Button.displayName = 'Button';
 
-export {Button, buttonVariants};
+export {buttonVariants};
