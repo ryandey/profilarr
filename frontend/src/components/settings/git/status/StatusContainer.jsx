@@ -276,30 +276,31 @@ const StatusContainer = ({
     }, [selectionType]);
 
     return (
-        <div className='bg-linear-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden'>
-            <div className='p-6 space-y-4'>
-                <div className='flex items-center justify-between'>
-                    <div className='flex items-center justify-between w-full'>
-                        <div className='flex items-center'>
-                            <GitMerge
-                                className='mr-2 text-green-400'
-                                size={14}
-                            />
-                            <h3 className='text-m font-semibold text-gray-100 mr-2'>
-                                Sync Status:
-                            </h3>
-                            {!hasChanges ? (
-                                <span className='text-m font-medium text-gray-300'>
-                                    {noChangesMessage}
-                                </span>
-                            ) : (
-                                <span className='text-white-400 text-m flex items-center space-x-2'>
-                                    <span>Out of Date!</span>
-                                </span>
-                            )}
-                        </div>
-                        <AutoPullToggle />
+        <div className='bg-linear-to-br from-white-50 to-gray-50 border border-gray-300 rounded-lg shadow-lg overflow-hidden dark:from-gray-800 dark:to-gray-900 dark:border-gray-700 dark:shadow-xl'>
+            <div className='p-8'>
+                <div className='flex items-center justify-between w-full'>
+                    {/* Sync Status */}
+                    <div className='flex items-center gap-2'>
+                        <GitMerge
+                            className=' text-green-500 dark:text-green-400'
+                            size={16}
+                        />
+                        <h3 className='font-semibold text-foreground'>
+                            Sync Status:
+                        </h3>
+                        {!hasChanges ? (
+                            <span className='text-muted-foreground'>
+                                {noChangesMessage}
+                            </span>
+                        ) : (
+                            <span className='text-foreground'>
+                                Out of Date!
+                            </span>
+                        )}
                     </div>
+
+                    {/* Auto Sync Toggle */}
+                    <AutoPullToggle />
                 </div>
 
                 {status.is_merging ? (
