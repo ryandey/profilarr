@@ -1,21 +1,21 @@
 import React from 'react';
 import {Link, Loader} from 'lucide-react';
 import GithubIcon from '@logo/GitHub.svg';
-import Tooltip from '@ui/Tooltip';
+import {Button} from '@/components/ui/Button';
 
 const EmptyRepo = ({onLinkRepo, loadingAction}) => {
     return (
-        <div className='flex items-center space-x-4'>
+        <div className='flex flex-col items-center space-y-4 lg:items-center lg:flex-row lg:space-y-0 lg:space-x-8'>
             <img
                 src={GithubIcon}
                 alt='GitHub'
-                className='w-8 h-8 filter invert'
+                className='w-16 h-16 filter dark:invert lg:w-12 lg:h-12'
             />
-            <div className='grow'>
-                <h2 className='text-lg font-medium text-white'>
+            <div className='grow text-center mb-8 lg:text-left lg:mb-0'>
+                <h2 className='text-lg font-medium text-foreground'>
                     No Repository Connected
                 </h2>
-                <p className='text-sm text-gray-400'>
+                <p className='text-sm text-muted-foreground'>
                     Profilarr leverages Git to create an open-source
                     configuration sharing system. Connect to the{' '}
                     <a
@@ -28,21 +28,21 @@ const EmptyRepo = ({onLinkRepo, loadingAction}) => {
                     or any external database to get started.
                 </p>
             </div>
-            <Tooltip content='Link Repository'>
-                <button
-                    onClick={onLinkRepo}
-                    className={`flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all duration-200 ease-in-out text-sm font-medium ${
-                        loadingAction ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    disabled={loadingAction !== ''}>
-                    {loadingAction === 'link_repo' ? (
-                        <Loader size={16} className='animate-spin mr-2' />
-                    ) : (
-                        <Link size={16} className='mr-2' />
-                    )}
-                    Link Repository
-                </button>
-            </Tooltip>
+            <Button
+                aria-label='Link Repository'
+                onClick={onLinkRepo}
+                size='lg'
+                className={`${
+                    loadingAction ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                disabled={loadingAction !== ''}>
+                {loadingAction === 'link_repo' ? (
+                    <Loader size={16} className='animate-spin' />
+                ) : (
+                    <Link size={16} />
+                )}
+                Link Repository
+            </Button>
         </div>
     );
 };
