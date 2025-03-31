@@ -1,90 +1,44 @@
-import React, {useState, useRef} from 'react';
+import React from 'react';
 import ArrContainer from './arrs/ArrContainer';
 import GeneralContainer from './general/GeneralContainer';
 import TaskContainer from './tasks/TaskContainer';
 import GitContainer from './git/GitContainer';
 import BackupContainer from './backup/BackupContainer';
 import LogContainer from './log/LogContainer';
+import {Tabs, TabsContent, TabsList, TabsTrigger} from '@ui/Tabs';
 
 const SettingsPage = () => {
-    const [activeTab, setActiveTab] = useState('git');
-    const tabsRef = useRef({});
-
-    const handleTabChange = tab => {
-        setActiveTab(tab);
-    };
-
     return (
         <div>
-            <nav className='flex space-x-4 my-4'>
-                <div
-                    onClick={() => handleTabChange('git')}
-                    ref={el => (tabsRef.current['git'] = el)}
-                    className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium ${
-                        activeTab === 'git'
-                            ? 'bg-gray-600 border border-gray-600 text-white'
-                            : 'bg-gray-800 border border-gray-700 text-white'
-                    }`}>
-                    Database
-                </div>
-                <div
-                    onClick={() => handleTabChange('general')}
-                    ref={el => (tabsRef.current['git'] = el)}
-                    className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium ${
-                        activeTab === 'general'
-                            ? 'bg-gray-600 border border-gray-600 text-white'
-                            : 'bg-gray-800 border border-gray-700 text-white'
-                    }`}>
-                    General
-                </div>
-                <div
-                    onClick={() => handleTabChange('app')}
-                    ref={el => (tabsRef.current['app'] = el)}
-                    className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium ${
-                        activeTab === 'app'
-                            ? 'bg-gray-600 border border-gray-600 text-white'
-                            : 'bg-gray-800 border border-gray-700 text-white'
-                    }`}>
-                    External Apps
-                </div>
-                <div
-                    onClick={() => handleTabChange('tasks')}
-                    ref={el => (tabsRef.current['tasks'] = el)}
-                    className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium ${
-                        activeTab === 'tasks'
-                            ? 'bg-gray-600 border border-gray-600 text-white'
-                            : 'bg-gray-800 border border-gray-700 text-white'
-                    }`}>
-                    Tasks
-                </div>
-                <div
-                    onClick={() => handleTabChange('backup')}
-                    ref={el => (tabsRef.current['backup'] = el)}
-                    className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium ${
-                        activeTab === 'backup'
-                            ? 'bg-gray-600 border border-gray-600 text-white'
-                            : 'bg-gray-800 border border-gray-700 text-white'
-                    }`}>
-                    Backups
-                </div>
-                <div
-                    onClick={() => handleTabChange('logs')}
-                    ref={el => (tabsRef.current['logs'] = el)}
-                    className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium ${
-                        activeTab === 'logs'
-                            ? 'bg-gray-600 border border-gray-600 text-white'
-                            : 'bg-gray-800 border border-gray-700 text-white'
-                    }`}>
-                    Logs
-                </div>
-            </nav>
+            <Tabs defaultValue='git'>
+                <TabsList className='my-3'>
+                    <TabsTrigger value='git'>Database</TabsTrigger>
+                    <TabsTrigger value='general'>General</TabsTrigger>
+                    <TabsTrigger value='app'>External Apps</TabsTrigger>
+                    <TabsTrigger value='tasks'>Tasks</TabsTrigger>
+                    <TabsTrigger value='backup'>Backups</TabsTrigger>
+                    <TabsTrigger value='logs'>Logs</TabsTrigger>
+                </TabsList>
 
-            {activeTab === 'git' && <GitContainer />}
-            {activeTab === 'general' && <GeneralContainer />}
-            {activeTab === 'app' && <ArrContainer />}
-            {activeTab === 'tasks' && <TaskContainer />}
-            {activeTab === 'backup' && <BackupContainer />}
-            {activeTab === 'logs' && <LogContainer />}
+                <TabsContent value='git'>
+                    <GitContainer />
+                </TabsContent>
+                <TabsContent value='general'>
+                    <GeneralContainer />
+                </TabsContent>
+                <TabsContent value='app'>
+                    <ArrContainer />
+                </TabsContent>
+                <TabsContent value='tasks'>
+                    <TaskContainer />
+                </TabsContent>
+                <TabsContent value='backup'>
+                    <BackupContainer />
+                </TabsContent>
+                <TabsContent value='logs'>
+                    <LogContainer />
+                </TabsContent>
+            </Tabs>
         </div>
     );
 };
