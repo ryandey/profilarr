@@ -9,6 +9,7 @@ import OutgoingChanges from './OutgoingChanges';
 import MergeConflicts from './MergeConflicts';
 import CommitSection from './CommitMessage';
 import AutoPullToggle from './AutoPullToggle';
+import Container from '@/components/ui/Container';
 
 const StatusContainer = ({
     status,
@@ -276,137 +277,131 @@ const StatusContainer = ({
     }, [selectionType]);
 
     return (
-        <div className='bg-linear-to-br from-white-50 to-gray-50 border border-gray-300 rounded-lg shadow-lg overflow-hidden dark:from-gray-800 dark:to-gray-900 dark:border-gray-700 dark:shadow-xl'>
-            <div className='p-8'>
-                <div className='flex items-center justify-between w-full'>
-                    {/* Sync Status */}
-                    <div className='flex items-center gap-2'>
+        <Container>
+            <div className='flex flex-col gap-6 w-full lg:flex-row lg:justify-between'>
+                {/* Sync Status */}
+                <div className='flex flex-col items-start md:flex-row md:gap-2'>
+                    <span className='flex items-center gap-2'>
                         <GitMerge
-                            className=' text-green-500 dark:text-green-400'
+                            className='text-green-500 dark:text-green-400'
                             size={16}
                         />
                         <h3 className='font-semibold text-foreground'>
                             Sync Status:
                         </h3>
-                        {!hasChanges ? (
-                            <span className='text-muted-foreground'>
-                                {noChangesMessage}
-                            </span>
-                        ) : (
-                            <span className='text-foreground'>
-                                Out of Date!
-                            </span>
-                        )}
-                    </div>
-
-                    {/* Auto Sync Toggle */}
-                    <AutoPullToggle />
+                    </span>
+                    {!hasChanges ? (
+                        <span className='text-muted-foreground'>
+                            {noChangesMessage}
+                        </span>
+                    ) : (
+                        <span className='text-foreground'>Out of Date!</span>
+                    )}
                 </div>
 
-                {status.is_merging ? (
-                    <MergeConflicts
-                        conflicts={status.merge_conflicts}
-                        onMergeCommit={handleMergeCommit}
-                        onAbortMerge={() => setIsAbortModalOpen(true)}
-                        areAllConflictsResolved={areAllConflictsResolved}
-                        fetchGitStatus={fetchGitStatus}
-                    />
-                ) : (
-                    <>
-                        <IncomingChanges
-                            changes={status.incoming_changes}
-                            onPullSelected={onPullSelected}
-                            loadingAction={loadingAction}
-                            sortConfig={sortConfig}
-                            onRequestSort={key =>
-                                setSortConfig(prev => ({
-                                    key,
-                                    direction:
-                                        prev.key === key &&
-                                        prev.direction === 'ascending'
-                                            ? 'descending'
-                                            : 'ascending'
-                                }))
-                            }
-                        />
+                {/* Auto Sync Toggle */}
+                <AutoPullToggle />
+            </div>
 
-                        <OutgoingChanges
-                            changes={status.outgoing_changes.filter(
-                                change => !change.committed
-                            )}
-                            unpushedFiles={status.unpushed_files}
-                            hasUnpushedCommits={hasUnpushedCommits}
-                            selectedChanges={selectedOutgoingChanges}
-                            willBeSelected={willBeSelected}
-                            onSelectChange={handleSelectChange}
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            onStageSelected={onStageSelected}
-                            onUnstageSelected={onUnstageSelected}
-                            onCommitSelected={handleCommitSelected}
-                            onPushSelected={onPushSelected}
-                            onRevertSelected={onRevertSelected}
-                            loadingAction={loadingAction}
-                            sortConfig={sortConfig}
-                            onRequestSort={key =>
-                                setSortConfig(prev => ({
-                                    key,
-                                    direction:
-                                        prev.key === key &&
-                                        prev.direction === 'ascending'
-                                            ? 'descending'
-                                            : 'ascending'
-                                }))
-                            }
-                            selectionType={selectionType}
-                            commitMessage={commitMessage}
-                            canCommit={canCommit}
-                            getButtonTooltips={getButtonTooltips}
-                        />
-                    </>
+            {status.is_merging ? (
+                <MergeConflicts
+                    conflicts={status.merge_conflicts}
+                    onMergeCommit={handleMergeCommit}
+                    onAbortMerge={() => setIsAbortModalOpen(true)}
+                    areAllConflictsResolved={areAllConflictsResolved}
+                    fetchGitStatus={fetchGitStatus}
+                />
+            ) : (
+                <>
+                    <IncomingChanges
+                        changes={status.incoming_changes}
+                        onPullSelected={onPullSelected}
+                        loadingAction={loadingAction}
+                        sortConfig={sortConfig}
+                        onRequestSort={key =>
+                            setSortConfig(prev => ({
+                                key,
+                                direction:
+                                    prev.key === key &&
+                                    prev.direction === 'ascending'
+                                        ? 'descending'
+                                        : 'ascending'
+                            }))
+                        }
+                    />
+
+                    <OutgoingChanges
+                        changes={status.outgoing_changes.filter(
+                            change => !change.committed
+                        )}
+                        unpushedFiles={status.unpushed_files}
+                        hasUnpushedCommits={hasUnpushedCommits}
+                        selectedChanges={selectedOutgoingChanges}
+                        willBeSelected={willBeSelected}
+                        onSelectChange={handleSelectChange}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        onStageSelected={onStageSelected}
+                        onUnstageSelected={onUnstageSelected}
+                        onCommitSelected={handleCommitSelected}
+                        onPushSelected={onPushSelected}
+                        onRevertSelected={onRevertSelected}
+                        loadingAction={loadingAction}
+                        sortConfig={sortConfig}
+                        onRequestSort={key =>
+                            setSortConfig(prev => ({
+                                key,
+                                direction:
+                                    prev.key === key &&
+                                    prev.direction === 'ascending'
+                                        ? 'descending'
+                                        : 'ascending'
+                            }))
+                        }
+                        selectionType={selectionType}
+                        commitMessage={commitMessage}
+                        canCommit={canCommit}
+                        getButtonTooltips={getButtonTooltips}
+                    />
+                </>
+            )}
+
+            {selectionType === 'staged' &&
+                selectedOutgoingChanges.length > 0 && (
+                    <CommitSection
+                        status={status}
+                        commitMessage={commitMessage}
+                        setCommitMessage={setCommitMessage}
+                        selectedOutgoingChanges={selectedOutgoingChanges}
+                        loadingAction={loadingAction}
+                        hasIncomingChanges={hasIncomingChanges}
+                        hasMergeConflicts={hasMergeConflicts}
+                    />
                 )}
 
-                {selectionType === 'staged' &&
-                    selectedOutgoingChanges.length > 0 && (
-                        <CommitSection
-                            status={status}
-                            commitMessage={commitMessage}
-                            setCommitMessage={setCommitMessage}
-                            selectedOutgoingChanges={selectedOutgoingChanges}
-                            loadingAction={loadingAction}
-                            hasIncomingChanges={hasIncomingChanges}
-                            hasMergeConflicts={hasMergeConflicts}
-                        />
-                    )}
-
-                <Modal
-                    isOpen={isAbortModalOpen}
-                    onClose={() => setIsAbortModalOpen(false)}
-                    title='Confirm Abort Merge'
-                    width='md'>
-                    <div className='space-y-4'>
-                        <div className='text-gray-300'>
-                            <p>
-                                Are you sure you want to abort the current
-                                merge?
-                            </p>
-                            <p className='mt-2 text-yellow-400'>
-                                This will discard all merge progress and restore
-                                your repository to its state before the merge
-                                began.
-                            </p>
-                        </div>
-                        <div className='flex justify-end space-x-3'>
-                            <button
-                                onClick={handleAbortMerge}
-                                className='px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500'>
-                                Abort Merge
-                            </button>
-                        </div>
+            <Modal
+                isOpen={isAbortModalOpen}
+                onClose={() => setIsAbortModalOpen(false)}
+                title='Confirm Abort Merge'
+                width='md'>
+                <div className='space-y-4'>
+                    <div className='text-gray-300'>
+                        <p>Are you sure you want to abort the current merge?</p>
+                        <p className='mt-2 text-yellow-400'>
+                            This will discard all merge progress and restore
+                            your repository to its state before the merge began.
+                        </p>
                     </div>
-                </Modal>
-            </div>
-        </div>
+                    <div className='flex justify-end space-x-3'>
+                        <button
+                            onClick={handleAbortMerge}
+                            className='px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500'>
+                            Abort Merge
+                        </button>
+                    </div>
+                </div>
+            </Modal>
+        </Container>
     );
 };
 
