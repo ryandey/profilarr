@@ -206,7 +206,7 @@ const GeneralContainer = () => {
                             />
                             <Button
                                 variant='icon'
-                                className='absolute right-3 top-1/2 -translate-y-1/2 text-foreground hover:text-foreground/70 w-6 h-6 flex items-center justify-center'
+                                className='hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 text-foreground hover:text-foreground/70 w-6 h-6 items-center justify-center'
                                 onClick={() => setShowApiKey(!showApiKey)}>
                                 {showApiKey ? (
                                     <EyeOff size={18} />
@@ -217,7 +217,7 @@ const GeneralContainer = () => {
                         </div>
                         <Button
                             variant='outline'
-                            className='h-11 w-11'
+                            className='hidden md:flex h-11 w-11'
                             onClick={handleCopyApiKey}
                             title='Copy API key'>
                             {copySuccess ? (
@@ -228,9 +228,9 @@ const GeneralContainer = () => {
                         </Button>
                         <Button
                             variant='outline'
-                            className='h-11 w-11'
+                            className='hidden md:flex h-11 w-11'
                             onClick={handleResetApiKey}
-                            title='Reset API Key - This will INVALIDATE your current key'>
+                            title='Reset API Key - This will invalidate your current key'>
                             <RefreshCw size={18} />
                         </Button>
                     </div>
@@ -251,11 +251,41 @@ const GeneralContainer = () => {
                                     !showApiKeyCurrentPassword
                                 )
                             }
-                            className='absolute right-3 top-1/2 -translate-y-1/2 text-foreground hover:text-foreground/70 w-6 h-6 flex items-center justify-center'>
+                            className='hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 text-foreground hover:text-foreground/70 w-6 h-6 items-center justify-center'>
                             {showApiKeyCurrentPassword ? (
                                 <EyeOff size={18} />
                             ) : (
                                 <Eye size={18} />
+                            )}
+                        </Button>
+                    </div>
+
+                    {/* Mobile Only - Copy and Reset API Key */}
+                    <div className='md:hidden flex gap-4 mt-2'>
+                        <Button
+                            variant='outline'
+                            size='lg'
+                            onClick={handleResetApiKey}
+                            title='Reset API Key - This will INVALIDATE your current key'
+                            className='w-full'>
+                            <RefreshCw size={18} />
+                            <span>Reset API Key</span>
+                        </Button>
+                        <Button
+                            size='lg'
+                            onClick={handleCopyApiKey}
+                            title='Copy API key'
+                            className='w-full'>
+                            {copySuccess ? (
+                                <>
+                                    <Check size={18} />
+                                    <span>Copied!</span>
+                                </>
+                            ) : (
+                                <>
+                                    <Copy size={18} />
+                                    <span>Copy API Key</span>
+                                </>
                             )}
                         </Button>
                     </div>
@@ -279,7 +309,7 @@ const GeneralContainer = () => {
                             </div>
 
                             {hasUsernameChanges && (
-                                <div className='flex gap-2'>
+                                <div className='flex flex-col gap-2 md:flex-row'>
                                     <div className='relative flex-1'>
                                         <Input
                                             type={
@@ -311,7 +341,7 @@ const GeneralContainer = () => {
                                         </Button>
                                     </div>
                                     <Button
-                                        variant='default'
+                                        size='lg'
                                         onClick={handleSaveUsername}
                                         disabled={
                                             !formData.usernameCurrentPassword
@@ -321,12 +351,12 @@ const GeneralContainer = () => {
                                                 ? 'Enter current password'
                                                 : 'Save changes'
                                         }
-                                        className={`h-11 ${
+                                        className={`ml-auto h-11 max-w-fit mt-2 md:mt-0 ${
                                             formData.usernameCurrentPassword
                                                 ? 'cursor-pointer'
                                                 : 'cursor-not-allowed'
                                         }`}>
-                                        Save Username
+                                        Update Username
                                     </Button>
                                 </div>
                             )}
@@ -348,7 +378,7 @@ const GeneralContainer = () => {
                                     onClick={() =>
                                         setShowPassword(!showPassword)
                                     }
-                                    className='absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center'>
+                                    className='hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 items-center justify-center'>
                                     {showPassword ? (
                                         <EyeOff size={18} />
                                     ) : (
@@ -379,7 +409,7 @@ const GeneralContainer = () => {
                                                     !showConfirmPassword
                                                 )
                                             }
-                                            className='absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center'>
+                                            className='hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 items-center justify-center'>
                                             {showConfirmPassword ? (
                                                 <EyeOff size={18} />
                                             ) : (
@@ -388,7 +418,7 @@ const GeneralContainer = () => {
                                         </Button>
                                     </div>
 
-                                    <div className='flex gap-2'>
+                                    <div className='flex flex-col gap-2 md:flex-row'>
                                         <div className='relative flex-1'>
                                             <Input
                                                 type={
@@ -409,7 +439,7 @@ const GeneralContainer = () => {
                                                         !showCurrentPassword
                                                     )
                                                 }
-                                                className='absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center'>
+                                                className='hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 items-center justify-center'>
                                                 {showCurrentPassword ? (
                                                     <EyeOff size={18} />
                                                 ) : (
@@ -418,6 +448,7 @@ const GeneralContainer = () => {
                                             </Button>
                                         </div>
                                         <Button
+                                            size='lg'
                                             onClick={handleSavePassword}
                                             disabled={
                                                 !formData.password ||
@@ -438,7 +469,7 @@ const GeneralContainer = () => {
                                                     ? 'Passwords do not match'
                                                     : 'Save new password'
                                             }
-                                            className={`h-11 ${
+                                            className={`ml-auto h-11 max-w-fit mt-2 md:mt-0 ${
                                                 formData.password &&
                                                 formData.confirmPassword &&
                                                 formData.currentPassword &&
@@ -447,7 +478,7 @@ const GeneralContainer = () => {
                                                     ? 'cursor-pointer'
                                                     : 'cursor-not-allowed'
                                             }`}>
-                                            Save Password
+                                            Update Password
                                         </Button>
                                     </div>
                                 </>
