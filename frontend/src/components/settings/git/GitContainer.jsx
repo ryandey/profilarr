@@ -14,6 +14,7 @@ import Alert from '@ui/Alert';
 import {statusLoadingMessages, getRandomMessage} from '@constants/messages';
 import RepoContainer from './repo/RepoContainer';
 import StatusContainer from './status/StatusContainer';
+import Container from '@/components/ui/Container';
 
 const GitContainer = () => {
     const [settings, setSettings] = useState(null);
@@ -228,12 +229,12 @@ const GitContainer = () => {
             {settings && (
                 <div className='space-y-4'>
                     {statusLoading ? (
-                        <div className='flex items-left justify-left dark:bg-gray-800 p-4 rounded-md border border-gray-200 dark:border-gray-700 text-sm'>
-                            <Loader className='animate-spin mr-2' size={16} />
-                            <span className='text-gray-300'>
+                        <Container className='flex flex-row items-center justify-left gap-2'>
+                            <Loader className='animate-spin' size={16} />
+                            <span className='text-muted-foreground'>
                                 {statusLoadingMessage}
                             </span>
-                        </div>
+                        </Container>
                     ) : (
                         <StatusContainer
                             status={changes}
