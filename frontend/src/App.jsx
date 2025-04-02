@@ -60,7 +60,7 @@ function App() {
 
     if (authState.checking) {
         return (
-            <>
+            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
                 <div>Loading...</div>
                 <ToastContainer
                     position='top-right'
@@ -74,13 +74,13 @@ function App() {
                     pauseOnHover
                     theme='dark'
                 />
-            </>
+            </ThemeProvider>
         );
     }
 
     if (authState.needsSetup) {
         return (
-            <>
+            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
                 <SetupPage
                     onSetupComplete={() =>
                         setAuthState({
@@ -102,13 +102,13 @@ function App() {
                     pauseOnHover
                     theme='dark'
                 />
-            </>
+            </ThemeProvider>
         );
     }
 
     if (authState.needsLogin) {
         return (
-            <>
+            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
                 <LoginPage
                     onLoginComplete={() =>
                         setAuthState({...authState, needsLogin: false})
@@ -126,7 +126,7 @@ function App() {
                     pauseOnHover
                     theme='dark'
                 />
-            </>
+            </ThemeProvider>
         );
     }
 
