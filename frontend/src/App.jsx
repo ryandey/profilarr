@@ -18,6 +18,7 @@ import {checkSetupStatus} from '@api/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import ErrorBoundary from '@ui/ErrorBoundary';
 import {ThemeProvider} from './components/theme-provider';
+import {TooltipProvider} from '@radix-ui/react-tooltip';
 
 function App() {
     const [authState, setAuthState] = useState({
@@ -61,19 +62,21 @@ function App() {
     if (authState.checking) {
         return (
             <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-                <div>Loading...</div>
-                <ToastContainer
-                    position='top-right'
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme='dark'
-                />
+                <TooltipProvider>
+                    <div>Loading...</div>
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme='dark'
+                    />
+                </TooltipProvider>
             </ThemeProvider>
         );
     }
@@ -81,27 +84,29 @@ function App() {
     if (authState.needsSetup) {
         return (
             <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-                <SetupPage
-                    onSetupComplete={() =>
-                        setAuthState({
-                            ...authState,
-                            needsSetup: false,
-                            needsLogin: false
-                        })
-                    }
-                />
-                <ToastContainer
-                    position='top-right'
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme='dark'
-                />
+                <TooltipProvider>
+                    <SetupPage
+                        onSetupComplete={() =>
+                            setAuthState({
+                                ...authState,
+                                needsSetup: false,
+                                needsLogin: false
+                            })
+                        }
+                    />
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme='dark'
+                    />
+                </TooltipProvider>
             </ThemeProvider>
         );
     }
@@ -109,11 +114,65 @@ function App() {
     if (authState.needsLogin) {
         return (
             <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-                <LoginPage
-                    onLoginComplete={() =>
-                        setAuthState({...authState, needsLogin: false})
-                    }
-                />
+                <TooltipProvider>
+                    <LoginPage
+                        onLoginComplete={() =>
+                            setAuthState({...authState, needsLogin: false})
+                        }
+                    />
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme='dark'
+                    />
+                </TooltipProvider>
+            </ThemeProvider>
+        );
+    }
+
+    return (
+        <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+            <TooltipProvider>
+                <Router>
+                    <ErrorBoundary>
+                        <div className='min-h-screen flex flex-col bg-background text-foreground'>
+                            {/* <Navbar darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+                            <Navbar />
+                            <div className='max-w-(--breakpoint-2xl) mx-auto px-4 sm:px-6 lg:px-8 mt-2 grow flex-1 w-full'>
+                                <Routes>
+                                    <Route
+                                        path='/regex'
+                                        element={<RegexPage />}
+                                    />
+                                    <Route
+                                        path='/format'
+                                        element={<FormatPage />}
+                                    />
+                                    <Route
+                                        path='/profile'
+                                        element={<ProfilePage />}
+                                    />
+                                    <Route
+                                        path='/settings'
+                                        element={<SettingsPage />}
+                                    />
+                                    <Route
+                                        path='/'
+                                        element={<Navigate to='/settings' />}
+                                    />
+                                </Routes>
+                            </div>
+                            <Footer />
+                        </div>
+                    </ErrorBoundary>
+                </Router>
                 <ToastContainer
                     position='top-right'
                     autoClose={5000}
@@ -126,54 +185,7 @@ function App() {
                     pauseOnHover
                     theme='dark'
                 />
-            </ThemeProvider>
-        );
-    }
-
-    return (
-        <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-            <Router>
-                <ErrorBoundary>
-                    <div className='min-h-screen flex flex-col bg-background text-foreground'>
-                        {/* <Navbar darkMode={darkMode} setDarkMode={setDarkMode} /> */}
-                        <Navbar />
-                        <div className='max-w-(--breakpoint-2xl) mx-auto px-4 sm:px-6 lg:px-8 mt-2 grow flex-1 w-full'>
-                            <Routes>
-                                <Route path='/regex' element={<RegexPage />} />
-                                <Route
-                                    path='/format'
-                                    element={<FormatPage />}
-                                />
-                                <Route
-                                    path='/profile'
-                                    element={<ProfilePage />}
-                                />
-                                <Route
-                                    path='/settings'
-                                    element={<SettingsPage />}
-                                />
-                                <Route
-                                    path='/'
-                                    element={<Navigate to='/settings' />}
-                                />
-                            </Routes>
-                        </div>
-                        <Footer />
-                    </div>
-                </ErrorBoundary>
-            </Router>
-            <ToastContainer
-                position='top-right'
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='dark'
-            />
+            </TooltipProvider>
         </ThemeProvider>
     );
 }
