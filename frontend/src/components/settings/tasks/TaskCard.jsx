@@ -29,7 +29,7 @@ const TaskCard = ({task, onTrigger, isTriggering, className}) => {
             <td className='py-4 px-4 text-foreground'>
                 {formatDateTime(task.next_run)}
             </td>
-            <td className='py-4 px-4'>
+            <td className='py-4 px-4 text-right'>
                 <button
                     onClick={() => onTrigger(task.id)}
                     disabled={isTriggering}

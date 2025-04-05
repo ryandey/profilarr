@@ -1,5 +1,6 @@
 // components/settings/TaskContainer.jsx
 import React, {useState, useEffect} from 'react';
+import clsx from 'clsx';
 import {getAllTasks, triggerTask} from '@/api/task';
 import {Loader} from 'lucide-react';
 import Alert from '@ui/Alert';
@@ -72,7 +73,10 @@ const TaskContainer = () => {
                         {headers.map(header => (
                             <th
                                 key={header}
-                                className='py-3 px-4 font-medium text-foreground'>
+                                className={clsx(
+                                    'py-3 px-4 font-medium text-foreground',
+                                    header === 'Actions' && 'text-right'
+                                )}>
                                 {header}
                             </th>
                         ))}
