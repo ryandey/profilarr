@@ -1,5 +1,6 @@
 import React from 'react';
 import {ANSI_COLORS} from '@constants/colors';
+import {cn} from '@/lib/utils';
 
 const parseAnsiLine = line => {
     // Split on ANSI escape sequences
@@ -50,47 +51,127 @@ const LogViewer = ({
     error,
     logContent
 }) => {
+    const [isTerminalDarkMode, setIsTerminalDarkMode] = React.useState(true);
+
     return (
-        <div className='h-full bg-gray-800 rounded-lg border border-gray-700 shadow-xl'>
+        <div
+            className={cn(
+                'h-full rounded-lg border border-border',
+                isTerminalDarkMode ? 'bg-gray-800' : 'bg-gray-100'
+            )}>
             <div className='px-4 py-2 border-b border-gray-700 flex items-center justify-between'>
-                <div className='text-gray-200 text-sm pl-2'>{selectedFile}</div>
-                <div className='flex items-center gap-2'>
-                    <span className='text-gray-400 text-sm'>Zoom:</span>
-                    <button
-                        onClick={() =>
-                            setZoom(prev => Math.max(0.5, prev - 0.1))
-                        }
-                        className='text-gray-400 hover:text-white px-2 py-1 rounded-sm'>
-                        -
-                    </button>
-                    <span className='text-gray-300 text-sm w-12 text-center'>
-                        {Math.round(zoom * 100)}%
-                    </span>
-                    <button
-                        onClick={() => setZoom(prev => Math.min(2, prev + 0.1))}
-                        className='text-gray-400 hover:text-white px-2 py-1 rounded-sm'>
-                        +
-                    </button>
+                <div
+                    className={cn(
+                        'text-sm pl-2',
+                        isTerminalDarkMode ? 'text-gray-200' : 'text-gray-800'
+                    )}>
+                    {selectedFile}
                 </div>
+                <span className='flex gap-12 items-center'>
+                    <div>
+                        <div className='flex items-center gap-1.5'>
+                            <input
+                                className='accent-checkbox'
+                                type='checkbox'
+                                id='toggle-terminal-dark-mode'
+                                aria-label='Toggle terminal dark mode'
+                                checked={isTerminalDarkMode}
+                                onChange={e =>
+                                    setIsTerminalDarkMode(e.target.checked)
+                                }
+                            />
+                            <label
+                                htmlFor='toggle-terminal-dark-mode'
+                                className={cn(
+                                    'text-sm',
+                                    isTerminalDarkMode
+                                        ? 'text-gray-200'
+                                        : 'text-gray-800'
+                                )}>
+                                Dark Mode
+                            </label>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <span
+                            className={cn(
+                                'text-sm',
+                                isTerminalDarkMode
+                                    ? 'text-gray-200'
+                                    : 'text-gray-800'
+                            )}>
+                            Zoom:
+                        </span>
+                        <button
+                            onClick={() =>
+                                setZoom(prev => Math.max(0.5, prev - 0.1))
+                            }
+                            className={cn(
+                                'text-sm hover:text-muted-foreground px-2 py-1 rounded-sm',
+                                isTerminalDarkMode
+                                    ? 'text-gray-200'
+                                    : 'text-gray-800'
+                            )}>
+                            -
+                        </button>
+                        <span
+                            className={cn(
+                                'text-sm',
+                                isTerminalDarkMode
+                                    ? 'text-gray-200'
+                                    : 'text-gray-800'
+                            )}>
+                            {Math.round(zoom * 100)}%
+                        </span>
+                        <button
+                            onClick={() =>
+                                setZoom(prev => Math.min(2, prev + 0.1))
+                            }
+                            className={cn(
+                                'text-sm hover:text-muted-foreground px-2 py-1 rounded-sm',
+                                isTerminalDarkMode
+                                    ? 'text-gray-200'
+                                    : 'text-gray-800'
+                            )}>
+                            +
+                        </button>
+                    </div>
+                </span>
             </div>
             <div
-                className='h-[calc(100vh-28rem)] overflow-y-auto p-4 scrollable'
+                className='h-[calc(100vh-30rem)] overflow-y-auto p-4 scrollable'
                 style={{fontSize: `${zoom}rem`}}>
                 {loading && (
-                    <div className='flex items-center justify-center p-4 text-gray-400'>
+                    <div
+                        className={cn(
+                            'flex items-center justify-center p-4',
+                            isTerminalDarkMode
+                                ? 'text-gray-200'
+                                : 'text-gray-800'
+                        )}>
                         <span>Loading logs...</span>
                     </div>
                 )}
                 {!loading && error && (
-                    <div className='flex items-center justify-center p-4 text-red-400'>
-                        {error}
-                    </div>
+                    <div
+                        className={cn(
+                            'flex items-center justify-center p-4 text-red-400',
+                            isTerminalDarkMode
+                                ? 'text-gray-200'
+                                : 'text-gray-800'
+                        )}></div>
                 )}
                 {!loading &&
                     !error &&
                     logContent.length === 0 &&
                     selectedFile && (
-                        <div className='flex items-center justify-center p-4 text-gray-400'>
+                        <div
+                            className={cn(
+                                'flex items-center justify-center p-4',
+                                isTerminalDarkMode
+                                    ? 'text-gray-200'
+                                    : 'text-gray-800'
+                            )}>
                             No log content found
                         </div>
                     )}
@@ -99,11 +180,20 @@ const LogViewer = ({
                         {logContent.map((line, lineIdx) => (
                             <pre
                                 key={lineIdx}
-                                className='py-1 px-2 hover:bg-gray-700 rounded-sm transition-colors whitespace-pre-wrap break-all font-mono'>
+                                className={cn(
+                                    'px-2 hover:bg-gray-700 rounded-sm transition-colors whitespace-pre-wrap break-all font-mono',
+                                    isTerminalDarkMode
+                                        ? 'hover:bg-gray-800'
+                                        : 'hover:bg-gray-200'
+                                )}>
                                 {parseAnsiLine(line).map((part, partIdx) => (
                                     <span
                                         key={partIdx}
-                                        className={part.className}>
+                                        className={cn(
+                                            isTerminalDarkMode
+                                                ? 'text-gray-200'
+                                                : 'text-gray-800'
+                                        )}>
                                         {part.text}
                                     </span>
                                 ))}

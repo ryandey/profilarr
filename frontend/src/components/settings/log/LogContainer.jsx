@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import {Logs} from '@api/logs';
 import LogMenu from './LogMenu';
+import Container from '@/components/ui/Container';
 import LogViewer from './LogViewer';
 
 const LogContainer = () => {
@@ -114,7 +115,7 @@ const LogContainer = () => {
     };
 
     return (
-        <div className='h-full flex flex-col space-y-4'>
+        <Container className='h-[calc(100vh-15rem)] flex flex-col space-y-4'>
             <LogMenu
                 logTypes={Array.from(logTypes)}
                 selectedType={selectedType}
@@ -135,7 +136,7 @@ const LogContainer = () => {
                     logContent={logContent}
                 />
             </div>
-        </div>
+        </Container>
     );
 };
 
