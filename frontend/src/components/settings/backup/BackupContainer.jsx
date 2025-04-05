@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import clsx from 'clsx';
 import {
     listBackups,
     createBackup,
@@ -10,6 +11,8 @@ import {
 import Alert from '@ui/Alert';
 import {Loader, Upload, RefreshCw} from 'lucide-react';
 import BackupCard from './BackupCard';
+import Container from '@/components/ui/Container';
+import {Button} from '@/components/ui/button';
 
 const BackupContainer = () => {
     const [backups, setBackups] = useState([]);
@@ -112,22 +115,21 @@ const BackupContainer = () => {
         );
     }
 
+    const headers = ['Name', 'Date/Time', 'Size', 'Actions'];
+
     return (
-        <div className='space-y-4'>
-            <div className='flex justify-between items-center'>
-                <h2 className='text-xl font-bold text-gray-100'>
+        <Container className='overflow-x-auto p-0 md:p-0 space-y-4'>
+            <div className='flex justify-between items-center px-6 pt-6 md:px-8 md:pt-8'>
+                <h2 className='text-xl font-bold text-foreground'>
                     Backup Management
                 </h2>
-                <div className='space-x-4'>
-                    <button
-                        onClick={handleCreateBackup}
-                        className='px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-200'>
-                        <RefreshCw className='inline-block mr-2' size={16} />
-                        Create Backup
-                    </button>
-                    <label
-                        htmlFor='backupFile'
-                        className='px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-200 cursor-pointer'>
+
+                <div className='flex gap-2'>
+                    <Button
+                        variant='outline'
+                        onClick={() =>
+                            document.getElementById('backupFile').click()
+                        }>
                         <Upload className='inline-block mr-2' size={16} />
                         Restore From Zip
                         <input
@@ -137,25 +139,27 @@ const BackupContainer = () => {
                             accept='.zip'
                             className='hidden'
                         />
-                    </label>
+                    </Button>
+                    <Button onClick={handleCreateBackup}>
+                        <RefreshCw className='inline-block mr-2' size={16} />
+                        Create Backup
+                    </Button>
                 </div>
             </div>
-            <div className='overflow-x-auto rounded-lg border border-gray-700'>
+            <div className='overflow-x-auto'>
                 <table className='min-w-full'>
-                    <thead className='bg-gray-800 border-b border-gray-700'>
+                    <thead className='bg-background text-left border-b border-t border-border'>
                         <tr>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Name
-                            </th>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Date/Time
-                            </th>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Size
-                            </th>
-                            <th className='py-3 px-4 text-right text-gray-400 font-medium bg-gray-800'>
-                                Actions
-                            </th>
+                            {headers.map(header => (
+                                <th
+                                    key={header}
+                                    className={clsx(
+                                        'py-3 px-4 font-medium text-foreground',
+                                        header === 'Actions' && 'text-right'
+                                    )}>
+                                    {header}
+                                </th>
+                            ))}
                         </tr>
                     </thead>
                     <tbody>
@@ -163,7 +167,7 @@ const BackupContainer = () => {
                             <tr>
                                 <td
                                     colSpan='4'
-                                    className='text-center py-4 text-gray-300'>
+                                    className='text-center py-4 text-foreground'>
                                     No backups available
                                 </td>
                             </tr>
@@ -181,13 +185,18 @@ const BackupContainer = () => {
                                     isDeleting={
                                         deletingBackup === backup.filename
                                     }
+                                    className={
+                                        backups[backups.length - 1] === backup
+                                            ? 'border-b-0'
+                                            : ''
+                                    }
                                 />
                             ))
                         )}
                     </tbody>
                 </table>
             </div>
-        </div>
+        </Container>
     );
 };
 
