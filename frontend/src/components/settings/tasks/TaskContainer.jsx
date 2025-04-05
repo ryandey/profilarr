@@ -4,6 +4,7 @@ import {getAllTasks, triggerTask} from '@/api/task';
 import {Loader} from 'lucide-react';
 import Alert from '@ui/Alert';
 import TaskCard from './TaskCard';
+import Container from '@/components/ui/Container';
 
 const TaskContainer = () => {
     const [tasks, setTasks] = useState([]);
@@ -50,45 +51,50 @@ const TaskContainer = () => {
         );
     }
 
+    const headers = [
+        'Name',
+        'Interval',
+        'Last Execution',
+        'Next Execution',
+        'Actions'
+    ];
+
     return (
-        <div className='space-y-4'>
-            <h2 className='text-xl font-bold mb-4 text-gray-100'>
-                Scheduled Tasks
-            </h2>
-            <div className='overflow-x-auto rounded-lg border border-gray-700'>
-                <table className='min-w-full'>
-                    <thead className='bg-gray-800 border-b border-gray-700'>
-                        <tr>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Name
-                            </th>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Interval
-                            </th>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Last Execution
-                            </th>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Next Execution
-                            </th>
-                            <th className='py-3 px-4 text-left text-gray-400 font-medium bg-gray-800'>
-                                Actions
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tasks.map(task => (
-                            <TaskCard
-                                key={task.id}
-                                task={task}
-                                onTrigger={handleTriggerTask}
-                                isTriggering={triggeringTask === task.id}
-                            />
-                        ))}
-                    </tbody>
-                </table>
+        <Container className='overflow-x-auto p-0 md:p-0 space-y-4'>
+            <div className='px-6 pt-6 md:px-8 md:pt-8'>
+                <h2 className='text-xl font-bold text-foreground'>
+                    Scheduled Tasks
+                </h2>
             </div>
-        </div>
+            <table className='min-w-full'>
+                <thead className='bg-background text-left border-b border-t border-border'>
+                    <tr>
+                        {headers.map(header => (
+                            <th
+                                key={header}
+                                className='py-3 px-4 font-medium text-foreground'>
+                                {header}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {tasks.map(task => (
+                        <TaskCard
+                            key={task.id}
+                            task={task}
+                            onTrigger={handleTriggerTask}
+                            isTriggering={triggeringTask === task.id}
+                            className={
+                                tasks[tasks.length - 1] === task
+                                    ? 'border-b-0'
+                                    : ''
+                            }
+                        />
+                    ))}
+                </tbody>
+            </table>
+        </Container>
     );
 };
 
